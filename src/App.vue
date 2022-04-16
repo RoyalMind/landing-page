@@ -8,7 +8,19 @@
                 <li class="nav-item">
                     <router-link to="/home" class="nav-link">
                         <font-awesome-icon icon="home" />
-                            Home
+                            Inicio
+                        </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/rules" class="nav-link">
+                        <font-awesome-icon icon="book" />
+                            Reglas
+                        </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/punishments" class="nav-link">
+                        <font-awesome-icon icon="gavel" />
+                            Sanciones
                         </router-link>
                 </li>
                 <li v-if="showAdminBoard" class="nav-item">
@@ -30,7 +42,7 @@
             <div v-if="!currentUser" class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <router-link to="/register" class="nav-link">
-                        <font-awesome-icon icon="user-plus" /> Register
+                        <font-awesome-icon icon="user-plus" /> Registrate
                     </router-link>
                 </li>
                 <li class="nav-item">

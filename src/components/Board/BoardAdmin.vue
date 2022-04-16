@@ -6,7 +6,7 @@
     </div>
 </template>
 <script>
-    import UserService from "../services/user-service";
+    import UserService from "../../services/auth/user-service";
     export default {
         name: "Home",
         data() {
@@ -15,7 +15,7 @@
             };
         },
         mounted() {
-            UserService.getModeratorBoard().then(
+            UserService.getAdminBoard().then(
                 (response) => {
                     this.content = response.data;
                 },

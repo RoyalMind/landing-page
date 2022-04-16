@@ -2,23 +2,30 @@ import { createWebHistory, createRouter } from "vue-router";
 import Home from "./components/Home.vue";
 import Login from "./components/Login.vue";
 import Register from "./components/Register.vue";
+import Rules from "./components/Rules.vue";
+import Punishments from "./components/Punishments.vue";
 
 // lazy-loaded
 const Profile = () => import("./components/Profile.vue")
 
-const BoardAdmin = () => import("./components/BoardAdmin.vue")
-const BoardModerator = () => import("./components/BoardModerator.vue")
-const BoardUser = () => import("./components/BoardUser.vue")
+const BoardAdmin = () => import("./components/Board/BoardAdmin.vue")
+const BoardModerator = () => import("./components/Board/BoardModerator.vue")
+const BoardUser = () => import("./components/Board/BoardUser.vue")
 
 const routes = [
     {
         path: "/",
-        name: "home",
+        name: "Inicio",
         component: Home,
     },
     {
-        path: "/home",
-        component: Home,
+        path: "/rules",
+        name: "Reglas",
+        component:  Rules,
+    },
+    {
+        path: "/punishments",
+        component:  Punishments,
     },
     {
         path: "/login",
@@ -60,7 +67,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    const publicPages = ['/login', '/register', '/home'];
+    const publicPages = ['/login', '/register', '/home', '/rules', '/punishments'];
     const authRequired = !publicPages.includes(to.path);
     const loggedIn = localStorage.getItem('user');
 
